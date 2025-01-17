@@ -1,7 +1,12 @@
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User {
+public class User implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     public int userID;
     public String name;
     public int maintenanceCalories;

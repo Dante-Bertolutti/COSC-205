@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Meal{
+public class Meal implements Serializable {
     private String name;
     private String date;
     private int ID;

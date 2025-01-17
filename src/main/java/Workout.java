@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Workout {
+public class Workout implements Serializable {
 
     private int workoutId;
 
