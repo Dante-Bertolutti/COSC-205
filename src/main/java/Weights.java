@@ -2,6 +2,8 @@
 public class Weights extends Exercise{
 	
 	private String name;
+	
+	private int id;
 
 	private int weight;
 
@@ -9,10 +11,12 @@ public class Weights extends Exercise{
 	
 	private int caloriesburned;
 
-	public Weights(String n, int w, int r) {
+	public Weights(String n, int id, int w, int r, int c) {
 		this.name=n;
 		this.weight=w;
 		this.reps=r;
+		this.id=id;
+		this.caloriesburned=c;
 	}
 
 	public String getName() {
@@ -55,5 +59,8 @@ public class Weights extends Exercise{
 			return w * 1.067;
 		return w;
 
+	}
+	public int getCaloriesBurned() {
+		return caloriesburned;
 	}
 }
