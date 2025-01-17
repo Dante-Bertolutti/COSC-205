@@ -40,7 +40,11 @@ public class Meal{
         int cal = 0;
         int pro = 0;
         for(int i = 0; i < foods.size(); i++){
-            meal += foods.get(i).getName() + ", ";
+            if(i == foods.size() - 1){
+                meal += foods.get(i).getName();
+            }else{
+                meal += foods.get(i).getName() + " and ";
+            }
             cal += foods.get(i).getCalories();
             pro += foods.get(i).getProtein();
         }
