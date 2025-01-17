@@ -19,10 +19,12 @@ public class Workout {
     }
 
     public String toString() {
+    	
+    	String result ="";
         for (Exercise e : exercises) {
-            return e.getName() + " " + e.getWeight() + " " + e.getReps() + "\n";
+            result += e.getName() + "\n";
         }
-        return null;
+        return result;
     }
 
     public String getDate() {
