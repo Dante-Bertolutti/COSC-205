@@ -19,7 +19,7 @@ public class Goal {
 //		endDate = ;
 //	}
 	
-	private Goal(int id, String name, String desc, Date startDate, Date endDate) {
+	Goal(int id, String name, String desc, Date startDate, Date endDate) {
 		this.id = id;
 		this.status = 0;
 		this.name = name;
@@ -29,7 +29,7 @@ public class Goal {
 		//this.user = user;
 	}
 	
-	private Goal(int id, int status, String name, String desc, String category, Date startDate, Date endDate) {
+	Goal(int id, int status, String name, String desc, String category, Date startDate, Date endDate) {
 		this.id = id;
 		this.status = status;
 		this.name = name;
@@ -95,19 +95,9 @@ public class Goal {
 		this.status = 2;
 	}
 	
-	public void calculateTimeRemaining() {
+	public Date calculateTimeRemaining() {
 		Date currDate = new Date();
 		Date output = new Date(endDate.getTime() - currDate.getTime());
-		System.out.println();
-	}
-}
-
-
-class Main{
-	public static void main(String[] args) {
-		Date sd = new Date();
-		Date ed = new Date(sd.getTime() + 50);
-		Goal g = new Goal(1, "Test", "this is a test", sd, ed);
-		
+		return output;
 	}
 }

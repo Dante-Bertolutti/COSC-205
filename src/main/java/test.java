@@ -1,3 +1,4 @@
+import java.util.Date;
 
 public class test {
 	
@@ -14,6 +15,11 @@ public class test {
 		test1.add(b);
 		
 		System.out.println(test1.toString());
+		
+//		Date sd = new Date();
+//		Date ed = new Date(sd.getTime() + 50);
+//		Goal g = new Goal(1, "Test", "this is a test", sd, ed);
+//		System.out.println(g.calculateTimeRemaining());
 		
 	}
 
