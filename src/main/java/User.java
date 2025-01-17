@@ -8,13 +8,17 @@ public class User {
     public ArrayList<Workout> workouts = new ArrayList<>();
     public ArrayList<Meal> meals = new ArrayList<>();
 
-    public void displayMealsToConsole(ArrayList<Meal> meals){
-        this.meals = meals;
-        for (Meal meal: meals)
-        System.out.println(meal.toString());
+    public User(int userID, String name, int maintenanceCalories) {
+        this.userID = userID;
+        this.name = name;
+        this.maintenanceCalories = maintenanceCalories;
     }
-    public void displayWorkoutsToConsole(ArrayList<Workout> workouts){
-        this.workouts = workouts;
+
+    public void displayMealsToConsole(){
+        for (Meal meal: meals)
+            System.out.println(meal.toString());
+    }
+    public void displayWorkoutsToConsole(){
         for (Workout workout: workouts) {
             System.out.println(workout.toString());
         }
