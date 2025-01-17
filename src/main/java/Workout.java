@@ -20,12 +20,14 @@ public class Workout implements Serializable {
     }
 
     public String toString() {
-    	
+    	int calsburned=0;
     	String result ="";
         for (Exercise e : exercises) {
             result += e.getName() + "\n";
+            calsburned+=e.getCaloriesBurned();
         }
-        return result;
+        
+        return result+" "+calsburned+" is the number of calories burned in this workout";
     }
 
     public String getDate() {
