@@ -22,6 +22,20 @@ public String getName() {
 	return this.name;
 }
 
+public double getAverageSpeed() {
+	
+	return distanceInKm*3600/timeInSeconds;
+	
+}
+
+public int getTime(){
+	return timeInSeconds;
+}
+
+public int getDistance() {
+	return distanceInKm;
+}
+
 
 
 }
