@@ -3,20 +3,59 @@ public class Weights extends Exercise{
 	
 	private String name;
 	
+	static int count=0;
+	
 	private int id;
 
 	private int weight;
 
 	private int reps;
 	
-	private int caloriesburned;
+	private double caloriesburned;
 
-	public Weights(String n, int id, int w, int r, int c) {
+	public Weights(String n, int w, int r) {
 		this.name=n;
 		this.weight=w;
 		this.reps=r;
-		this.id=id;
-		this.caloriesburned=c;
+		this.id=count;
+		count++;
+		this.caloriesburned=reps*(0.3);
+	}
+
+	public static int getCount() {
+		return count;
+	}
+
+	public static void setCount(int count) {
+		Weights.count = count;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public double getCaloriesburned() {
+		return caloriesburned;
+	}
+
+	public void setCaloriesburned(double caloriesburned) {
+		this.caloriesburned = caloriesburned;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public void setReps(int reps) {
+		this.reps = reps;
 	}
 
 	public String getName() {
@@ -60,7 +99,10 @@ public class Weights extends Exercise{
 		return w;
 
 	}
-	public int getCaloriesBurned() {
-		return caloriesburned;
+	
+	public static void CreateWorkout(Workout w) {
+		
+		
+		
 	}
 }
