@@ -1,41 +1,30 @@
+//import java.util.Date;
 
 public class Goal {
+	private static int count;
 	private int id;
 	private int status; //0 = In Progress, 1 = success, 2 = fail
 	private String name;
 	private String desc;
 	private String startDate;
 	private String endDate;
-	//private User user;
 	
-//	private Goal(){
-//		id = ;
+//	Goal(){
+//		id = count++;
 //		status = 0;
-//		name = ;
-//		desc = ;
-//		category = ;
-//		startDate = ;
-//		endDate = ;
+//		name = "New Goal";
+//		desc = "";
+//		startDate = new Date() + "";
+//		endDate = 	new Date() + "";
 //	}
 	
-	Goal(int id, String name, String desc, String startDate, String endDate) {
-		this.id = id;
+	Goal(String name, String desc, String startDate, String endDate) {
+		id = count++;
 		this.status = 0;
 		this.name = name;
 		this.desc = desc;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		//this.user = user;
-	}
-	
-	Goal(int id, int status, String name, String desc, String category, String startDate, String endDate) {
-		this.id = id;
-		this.status = status;
-		this.name = name;
-		this.desc = desc;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		//this.user = user;
 	}
 	
 	public int getId() {
