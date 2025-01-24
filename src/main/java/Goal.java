@@ -4,8 +4,8 @@ public class Goal {
     private Date endDate;
     private String goalTitle;
     private boolean complete = false;
-    private Workout workout;
-    private Meal diet;
+    private int goalWeight;
+    private int goalCalories;
 
     public Goal(Date endDate, String goalTitle, boolean complete, Workout workout, Meal diet) {
         this.endDate = endDate;
