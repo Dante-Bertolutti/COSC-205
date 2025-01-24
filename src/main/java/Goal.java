@@ -27,11 +27,27 @@ public class Goal {
         return complete;
     }
 
-    public Workout getWorkout() {
-        return workout;
+    public Workout getGoalWeight() {
+        return goalWeight;
     }
 
-    public Meal getDiet() {
-        return diet;
+    public Meal getGoalCalories() {
+        return goalCalories;
+    }
+
+    public void setGoalTitle(String goalTitle) {
+        this.goalTitle = goalTitle;
+    }
+
+    public void setComplete(boolean complete) {
+        this.complete = complete;
+    }
+
+    public void setGoalWeight(int goalWeight) {
+        this.goalWeight = goalWeight;
+    }
+
+    public void setGoalCalories(int goalCalories) {
+        this.goalCalories = goalCalories;
     }
 }
