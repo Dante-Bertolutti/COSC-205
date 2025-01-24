@@ -12,10 +12,12 @@ private int timeInSeconds;
 private int caloriesburned;
 
 
-public Cardio(String n, int d, int t) {
+public Cardio(String n, int id, int d, int t, int c) {
 	this.name=n;
 	this.distanceInKm=d;
 	this.timeInSeconds=t;
+	this.id=id;
+	this.caloriesburned=c;
 }
 
 public String getName() {
@@ -34,6 +36,10 @@ public int getTime(){
 
 public int getDistance() {
 	return distanceInKm;
+}
+
+public int getCaloriesBurned() {
+	return caloriesburned;
 }
 
 

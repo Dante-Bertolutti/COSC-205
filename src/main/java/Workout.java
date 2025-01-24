@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Workout {
+public class Workout implements Serializable {
 
     private int workoutId;
 
@@ -19,12 +20,14 @@ public class Workout {
     }
 
     public String toString() {
-    	
+    	int calsburned=0;
     	String result ="";
         for (Exercise e : exercises) {
             result += e.getName() + "\n";
+            calsburned+=e.getCaloriesBurned();
         }
-        return result;
+        
+        return result+" "+calsburned+" is the number of calories burned in this workout";
     }
 
     public String getDate() {
