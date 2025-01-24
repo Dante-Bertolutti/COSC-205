@@ -10,6 +10,7 @@ public class User implements Serializable {
     public int maintenanceCalories;
     public ArrayList<Workout> workouts = new ArrayList<>();
     public ArrayList<Meal> meals = new ArrayList<>();
+    public ArrayList<Goal> goals = new ArrayList<>();
 
     public User(){}
     public User(int userID, String name, int maintenanceCalories) {
