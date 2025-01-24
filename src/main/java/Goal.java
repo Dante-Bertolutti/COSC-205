@@ -7,12 +7,12 @@ public class Goal {
     private int goalWeight;
     private int goalCalories;
 
-    public Goal(Date endDate, String goalTitle, boolean complete, Workout workout, Meal diet) {
+    public Goal(Date endDate, String goalTitle, boolean complete, int goalWeight, int goalCalories) {
         this.endDate = endDate;
         this.goalTitle = goalTitle;
         this.complete = complete;
-        this.workout = workout;
-        this.diet = diet;
+        this.goalWeight = goalWeight;
+        this.goalCalories = goalCalories;
     }
 
     public Date getEndDate() {
@@ -27,11 +27,11 @@ public class Goal {
         return complete;
     }
 
-    public Workout getGoalWeight() {
+    public int getGoalWeight() {
         return goalWeight;
     }
 
-    public Meal getGoalCalories() {
+    public int getGoalCalories() {
         return goalCalories;
     }
 
