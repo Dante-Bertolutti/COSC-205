@@ -8,6 +8,13 @@ public class Main {
                 String answer = in.next();
                 if (answer.equalsIgnoreCase("login")){
                     activeUser = User.userLogin();
+                    System.out.println("make your workout");
+                    Workout.createWorkout(activeUser);
+                    System.out.println("are you doing cardio or weights today?(type cardio or weights)");
+                    String answer2=in.next();
+                    if(answer.equalsIgnoreCase("weights")) {
+                    	
+                    }
                 } else {
                     User.createAccount();
                 }
