@@ -20,7 +20,7 @@ public class Weights extends Exercise{
 		this.reps=reps;
 		this.id=count;
 		count++;
-		this.caloriesburned=reps*(0.3);
+		this.caloriesburned=reps*(0.1);
 	}
 
 	public static int getCount() {
@@ -39,11 +39,11 @@ public class Weights extends Exercise{
 		this.id = id;
 	}
 
-	public double getCaloriesburned() {
+	public double getCaloriesBurned() {
 		return caloriesburned;
 	}
 
-	public void setCaloriesburned(double caloriesburned) {
+	public void setCaloriesBurned(double caloriesburned) {
 		this.caloriesburned = caloriesburned;
 	}
 
@@ -101,19 +101,41 @@ public class Weights extends Exercise{
 
 	}
 	
-	public static void CreateWorkout(Workout w) {
-		Scanner in = new Scanner(System.in);
-	//	String answer="";
-		//while()
-		System.out.println("add set");
-		
-	//	Scanner s = new
-		
+	public static void createWeights(Workout work) {
+	    Scanner in = new Scanner(System.in);
+	    String answer = "";
+	    
+	    while(!answer.equalsIgnoreCase("done")) {
+	        // Variables for each exercise set
+	        String n = "";
+	        int w = 0;
+	        int r = 0;
+
+	        // Input exercise details
+	        System.out.println("Input exercise name:");
+	        n = in.nextLine(); // Use nextLine() to allow for multi-word exercise names
+	        System.out.println("Input amount of weight:");
+	        w = in.nextInt();
+	        System.out.println("Input number of reps:");
+	        r = in.nextInt();
+	        
+	        // Create the Weights object and add to Workout
+	        Weights currentSet = new Weights(n, w, r);
+	        work.add(currentSet);
+
+	        // Prompt the user to either continue or finish
+	        System.out.println("Enter 'done' if weightlifting is concluded, or type anything else to continue.");
+	        in.nextLine(); // Consume newline left by nextInt()
+	        answer = in.nextLine();  // Read the user's response
+	    }
 	}
 
 	@Override
 	public void calculateCaloriesBurned() {
 		// TODO Auto-generated method stub
 		caloriesburned=caloriesburned*1;
+	}
+	public String toString() {
+		return super.getName()+" "+this.getWeight()+"lbs x"+this.getReps();
 	}
 }
