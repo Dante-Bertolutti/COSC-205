@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Weights extends Exercise{
 	
@@ -101,8 +102,12 @@ public class Weights extends Exercise{
 	}
 	
 	public static void CreateWorkout(Workout w) {
+		Scanner in = new Scanner(System.in);
+	//	String answer="";
+		//while()
+		System.out.println("add set");
 		
-		
+	//	Scanner s = new
 		
 	}
 }
