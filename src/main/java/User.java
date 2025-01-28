@@ -62,31 +62,41 @@ public class User implements Serializable {
     }
 
     //Login and Create User methods
-    public static User userLogin(){
+    public static User userLogin() {
         Scanner loginInput = new Scanner(System.in);
-        // Deserialize the User object
         System.out.println("What is your name: ");
-        String username = loginInput.nextLine();
+        String username = loginInput.nextLine().trim();  // Ensure trimming whitespace
+
+        // Check if username is not empty
+        if (username.isEmpty()) {
+            System.out.println("Username cannot be empty!");
+            return null;
+        }
+
+        // Print the filename to debug
+        System.out.println("Attempting to open file: " + username + ".ser");
+
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(username + ".ser"))) {
             User deserializedUser = (User) ois.readObject();
             System.out.println("Login Successful");
             return deserializedUser;
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Your user does not exist. Would you like to create one? Type(Y/N)");
-            String response = loginInput.nextLine();
-            if (response.equalsIgnoreCase("y")){
-                createAccount();
-                return null;
+            System.out.println("User does not exist. Would you like to create one? Type (Y/N)");
+            String response = loginInput.nextLine().trim();
+            if (response.equalsIgnoreCase("y")) {
+                createAccount();  // User is created, but the new user is not returned here
+                return null; // Ideally, you'd return the newly created user or handle accordingly
             } else {
                 System.out.println("Goodbye");
                 return null;
             }
         }
     }
+
     public static void saveUser(User user){
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(user.getName() + ".ser"))) {
             oos.writeObject(user);
-            System.out.println("User Created! You can now Login");
+            System.out.println("User saved");
         } catch (IOException e) {
             System.out.println("Fail");
         }
@@ -101,5 +111,12 @@ public class User implements Serializable {
         System.out.println("What would you like to set your maintenance calories at");
         newUser.setMaintenanceCalories(input.nextInt());
         saveUser(newUser);
+    }
+    public static void viewUserWorkouts(User user) {
+       ArrayList<Workout> workouts = user.getWorkouts();
+        for (Workout w : workouts){
+            System.out.println(w.workoutSummary());
+            System.out.println("------------------");
+        }
     }
 }
