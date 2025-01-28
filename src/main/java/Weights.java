@@ -14,10 +14,10 @@ public class Weights extends Exercise{
 	
 	private double caloriesburned;
 
-	public Weights(String n, int w, int r) {
-		this.name=n;
-		this.weight=w;
-		this.reps=r;
+	public Weights(String name, int weight, int reps) {
+		super(name);
+		this.weight=weight;
+		this.reps=reps;
 		this.id=count;
 		count++;
 		this.caloriesburned=reps*(0.3);
@@ -109,5 +109,11 @@ public class Weights extends Exercise{
 		
 	//	Scanner s = new
 		
+	}
+
+	@Override
+	public void calculateCaloriesBurned() {
+		// TODO Auto-generated method stub
+		caloriesburned=caloriesburned*1;
 	}
 }
