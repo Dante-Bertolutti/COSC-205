@@ -1,108 +1,46 @@
+import java.io.Serializable;
+import java.util.Scanner;
 
-public class Weights extends Exercise{
-	
-	private String name;
-	
-	static int count=0;
-	
-	private int id;
+public class Weights extends Exercise implements Serializable {
 
 	private int weight;
-
 	private int reps;
-	
-	private double caloriesburned;
 
-	public Weights(String n, int w, int r) {
-		this.name=n;
-		this.weight=w;
-		this.reps=r;
-		this.id=count;
-		count++;
-		this.caloriesburned=reps*(0.3);
-	}
-
-	public static int getCount() {
-		return count;
-	}
-
-	public static void setCount(int count) {
-		Weights.count = count;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public double getCaloriesburned() {
-		return caloriesburned;
-	}
-
-	public void setCaloriesburned(double caloriesburned) {
-		this.caloriesburned = caloriesburned;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setWeight(int weight) {
+	public Weights(String name, int weight, int reps) {
+		super(name);
 		this.weight = weight;
-	}
-
-	public void setReps(int reps) {
 		this.reps = reps;
+		calculateCaloriesBurned(); // Call the method to calculate calories
 	}
 
-	public String getName() {
-		return this.name;
+	@Override
+	public void calculateCaloriesBurned() {
+		double calories = reps * 0.3; // Simple formula for calories burned in weights
+		setCaloriesBurned(calories); // Set the calculated calories
 	}
-	public int getWeight() {
-		return this.weight;
-	}
-	public int getReps() {
-		return this.reps;
-	}
-	public double getOneRepMax(double w, int reps){
-		if (reps == 15)
-			return w * 1.5;
-		if (reps == 14)
-			return w * 1.466;
-		if (reps == 13)
-			return w * 1.433;
-		if (reps == 12)
-			return w * 1.4;
-		if (reps == 11)
-			return w * 1.366;
-		if (reps == 10)
-			return w * 1.333;
-		if (reps == 9)
-			return w * 1.3;
-		if (reps == 8)
-			return w * 1.266;
-		if (reps == 7)
-			return w * 1.233;
-		if (reps == 6)
-			return w * 1.2;
-		if (reps == 5)
-			return w * 1.167;
-		if (reps == 4)
-			return w * 1.133;
-		if (reps == 3)
-			return w * 1.1;
-		if (reps == 2)
-			return w * 1.067;
-		return w;
 
+	public static void createWeights(Workout workout) {
+		Scanner input = new Scanner(System.in);
+
+		System.out.println("Enter the weight in kilograms:");
+		int weight = input.nextInt();
+
+		System.out.println("Enter the number of reps:");
+		int reps = input.nextInt();
+
+		input.nextLine(); // Clear the buffer
+
+		System.out.println("Enter the name of the weightlifting exercise (e.g., 'Bench Press', 'Squat'):");
+		String name = input.nextLine();
+
+		Weights weightExercise = new Weights(name, weight, reps);
+		workout.add(weightExercise);
+
+		System.out.println("You burned " + weightExercise.getCaloriesBurned() + " calories!");
 	}
-	
-	public static void CreateWorkout(Workout w) {
-		
-		
-		
+	@Override
+	public String toString() {
+		return "Weights Exercise: " + getName() + "\nWeight: " + weight + " kg\nReps: " + reps + "\nCalories Burned: " + getCaloriesBurned();
 	}
+
 }

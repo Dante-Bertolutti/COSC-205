@@ -1,77 +1,48 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Cardio extends Exercise {
+public class Cardio extends Exercise implements Serializable {
 
-    public static int id;
-
-    private String name;
-
-    private double distanceInKm;
-
+    private int distanceInKm;
     private int timeInSeconds;
 
-    private double caloriesburned;
-
-
-    public Cardio(){
-        id++;
-        caloriesburned = ((double) timeInSeconds / 60) * 3;
-    }
-    Cardio(String n, int d, int t) {
-        this.name = n;
-        this.distanceInKm = d;
-        this.timeInSeconds = t;
-        caloriesburned = ((double) timeInSeconds / 60) * 3;
-        id++;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public double getAverageSpeed() {
-
-        return distanceInKm * 3600 / timeInSeconds;
-
-    }
-
-    //Getters And Setters
-    public int getTime() {
-        return timeInSeconds;
-    }
-
-    public double getDistance() {
-        return distanceInKm;
-    }
-
-    public double getDistanceInKm(){
-        return caloriesburned;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setDistanceInKm(double distanceInKm) {
+    public Cardio(String name, int distanceInKm, int timeInSeconds) {
+        super(name);
         this.distanceInKm = distanceInKm;
-    }
-
-    public void setTimeInSeconds(int timeInSeconds) {
         this.timeInSeconds = timeInSeconds;
+        calculateCaloriesBurned(); // Call the method to calculate calories
     }
 
-    public void setCaloriesburned(int caloriesburned) {
-        this.caloriesburned = caloriesburned;
+    @Override
+    public void calculateCaloriesBurned() {
+        double speed = (double) distanceInKm / (timeInSeconds / 3600.0);
+        double calories = 0.05 * distanceInKm * speed;
+        setCaloriesBurned(calories); // Set the calculated calories
     }
 
-    public void createCardio(Workout workout) {
-        Cardio cardio = new Cardio();
+
+    public static void createCardio(Workout workout) {
         Scanner input = new Scanner(System.in);
-        System.out.println("How far did you travel in kilometers");
-        cardio.setDistanceInKm(input.nextDouble());
-        System.out.println("How long did it take you in seconds");
-        cardio.setTimeInSeconds(input.nextInt());
-        System.out.println("Great job your average speed was: " + getAverageSpeed() + " and you burned " + getCaloriesBurned() + " Calories");
-        workout.add(cardio);
-    }
 
+        System.out.println("Enter the distance in kilometers:");
+        int distance = input.nextInt();
+
+        System.out.println("Enter the time in seconds:");
+        int time = input.nextInt();
+
+        input.nextLine(); // Clear the buffer
+
+        System.out.println("Enter the name of the cardio activity (e.g., 'Running', 'Cycling'):");
+        String name = input.nextLine();
+
+        Cardio cardioExercise = new Cardio(name, distance, time);
+        workout.add(cardioExercise);
+
+        System.out.println("You burned " + cardioExercise.getCaloriesBurned() + " calories!");
+    }
+    @Override
+    public String toString() {
+        return "Cardio Exercise: " + getName() + "\nDistance: " + distanceInKm + " km\nTime: " + timeInSeconds + " seconds\nCalories Burned: " + getCaloriesBurned();
+    }
 
 }
