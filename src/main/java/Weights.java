@@ -105,6 +105,13 @@ public class Weights extends Exercise{
 	    Scanner in = new Scanner(System.in);
 	    String answer = "";
 	    
+	    System.out.println("Would you like to see an example workout? (Y/N)");
+	    answer = in.nextLine();
+	    if(answer.equalsIgnoreCase("y")) {
+	        WorkoutGenerator workoutGenerator = new WorkoutGenerator();
+	        workoutGenerator.generateWorkout();
+	    }
+	    
 	    while(!answer.equalsIgnoreCase("done")) {
 	        // Variables for each exercise set
 	        String n = "";
