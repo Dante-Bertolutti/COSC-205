@@ -105,11 +105,19 @@ public class Weights extends Exercise{
 	    Scanner in = new Scanner(System.in);
 	    String answer = "";
 	    
-	    System.out.println("Would you like to see an example workout? (Y/N)");
+	    System.out.println("Would you like to see an example workout? F - Full body, L - Lower Body, U - Upper Body or C to continue");
 	    answer = in.nextLine();
-	    if(answer.equalsIgnoreCase("y")) {
+	    if(answer.toUpperCase().equals("F")) {
 	        WorkoutGenerator workoutGenerator = new WorkoutGenerator();
-	        workoutGenerator.generateWorkout();
+	        workoutGenerator.generateWorkout("F");
+	    }
+	    if(answer.toUpperCase().equals("L")) {
+	        WorkoutGenerator workoutGenerator = new WorkoutGenerator();
+	        workoutGenerator.generateWorkout("L");
+	    }
+	    if(answer.toUpperCase().equals("U")) {
+	        WorkoutGenerator workoutGenerator = new WorkoutGenerator();
+	        workoutGenerator.generateWorkout("U");
 	    }
 	    
 	    while(!answer.equalsIgnoreCase("done")) {
