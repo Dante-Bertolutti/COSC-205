@@ -7,10 +7,9 @@ public class Goal {
     private int goalWeight;
     private int goalCalories;
 
-    public Goal(Date endDate, String goalTitle, boolean complete, int goalWeight, int goalCalories) {
+    public Goal(Date endDate, String goalTitle, int goalWeight, int goalCalories) {
         this.endDate = endDate;
         this.goalTitle = goalTitle;
-        this.complete = complete;
         this.goalWeight = goalWeight;
         this.goalCalories = goalCalories;
     }
@@ -24,7 +23,14 @@ public class Goal {
     }
 
     public boolean isComplete() {
-        return complete;
+    	return complete;
+    }
+    public void completionStatus() {
+        if(!complete) {
+        	System.out.println("Almost there keep going!");
+        }else {
+        	System.out.println("Goal reached. Congratulations!");
+        }
     }
 
     public int getGoalWeight() {
@@ -44,10 +50,16 @@ public class Goal {
     }
 
     public void setGoalWeight(int goalWeight) {
+    	if(goalWeight > 0) {
+    		System.out.println("Not a valid weight goal. Enter a postive integer");
+    	}
         this.goalWeight = goalWeight;
     }
 
     public void setGoalCalories(int goalCalories) {
+    	if(goalCalories >= 0) {
+    		System.out.println("Not a valid calorie goal. Enter a positive integer");
+    	}
         this.goalCalories = goalCalories;
     }
 }

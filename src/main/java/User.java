@@ -119,4 +119,7 @@ public class User implements Serializable {
             System.out.println("------------------");
         }
     }
+    public void addGoal(Goal g) {
+    	goals.add(g);
+    }
 }

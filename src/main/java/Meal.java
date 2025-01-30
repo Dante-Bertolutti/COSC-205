@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Meal implements Serializable {
     private String name;
@@ -29,7 +30,7 @@ public class Meal implements Serializable {
         for(int i = 0; i < foods.size(); i++){
             calories += foods.get(i).getCalories();
         }
-        return 0;
+        return calories;
     }
     public void addFood(Food f){
         foods.add(f);

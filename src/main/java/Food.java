@@ -26,4 +26,8 @@ public class Food {
     public int getProtein() {
         return protein;
     }
+    @Override
+    public String toString() {
+    	return this.name + " has " + this.calories + " calories and " + this.protein + " grams of protein.";  
+    }
 }
