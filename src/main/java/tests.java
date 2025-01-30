@@ -3,8 +3,11 @@ import java.util.Date;
 
 public class tests {
 	public static void main(String[] args) {
-		Food f = new Food("Steak", 1, 500, 30);
-		System.out.println(f);
+		Date d1 = new Date();
+		Goal newGoal = new Goal(d1, "Bench 300", 300, 3000);
+		System.out.println(newGoal.getGoalCalories());
+		newGoal.setGoalCalories(0);
+		System.out.println(newGoal.getGoalCalories());
 	}
 	
 }

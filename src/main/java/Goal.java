@@ -50,16 +50,16 @@ public class Goal {
     }
 
     public void setGoalWeight(int goalWeight) {
-    	if(goalWeight > 0) {
-    		System.out.println("Not a valid weight goal. Enter a postive integer");
-    	}
+        if (goalWeight <= 0) {
+            throw new IllegalArgumentException("Goal weight must be a positive number.");
+        }
         this.goalWeight = goalWeight;
     }
 
     public void setGoalCalories(int goalCalories) {
-    	if(goalCalories >= 0) {
-    		System.out.println("Not a valid calorie goal. Enter a positive integer");
-    	}
+        if (goalCalories <= 0) {
+            throw new IllegalArgumentException("Goal calories must be a positive number.");
+        }
         this.goalCalories = goalCalories;
     }
 }
