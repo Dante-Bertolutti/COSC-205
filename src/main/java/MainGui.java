@@ -12,7 +12,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class MainGui extends JFrame {
-    private User activeUser;
+    /**
+	 * 
+	 */
+
+	private User activeUser;
     private CardLayout cardLayout;
     private JPanel mainPanel;
 

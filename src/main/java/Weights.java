@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Weights extends Exercise{
@@ -126,20 +127,40 @@ public class Weights extends Exercise{
 	        int w = 0;
 	        int r = 0;
 
-	        // Input exercise details
+	        // Input exercise name
 	        System.out.println("Input exercise name:");
-	        n = in.nextLine(); // Use nextLine() to allow for multi-word exercise names
-	        System.out.println("Input amount of weight:");
-	        w = in.nextInt();
-	        System.out.println("Input number of reps:");
-	        r = in.nextInt();
-	        
+	        n = in.nextLine(); 
+
+	        boolean validWeight = false;
+	        while (!validWeight) {
+	            try {
+	                System.out.println("Input amount of weight:");
+	                w = in.nextInt();
+	                validWeight = true; 
+	            } catch (InputMismatchException e) {
+	                System.out.println("Invalid input for weight. Please enter a valid number.");
+	                in.nextLine(); 
+	            }
+	        }
+
+	        boolean validReps = false;
+	        while (!validReps) {
+	            try {
+	                System.out.println("Input number of reps:");
+	                r = in.nextInt();
+	                validReps = true; 
+	            } catch (InputMismatchException e) {
+	                System.out.println("Invalid input for reps. Please enter a valid number.");
+	                in.nextLine(); 
+	            }
+	        }
+
 	        // Create the Weights object and add to Workout
 	        Weights currentSet = new Weights(n, w, r);
 	        work.add(currentSet);
 
 	        // Prompt the user to either continue or finish
-	        System.out.println("Enter 'done' if weightlifting is concluded, or type anything else to continue.");
+	        System.out.println("Enter 'done' if weightlifting is concluded, or type 'c' to continue.");
 	        in.nextLine(); // Consume newline left by nextInt()
 	        answer = in.nextLine();  // Read the user's response
 	    }
