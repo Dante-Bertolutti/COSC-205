@@ -2,12 +2,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Weights extends Exercise{
-	
-	private String name;
-	
-	static int count=0;
-	
-	private int id;
 
 	private int weight;
 
